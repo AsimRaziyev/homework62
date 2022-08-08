@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+
 {% block nav %}
 <li class="nav-item">
     <a class="nav-link" href="#">Loga</a>
@@ -7,7 +8,22 @@
 {% endblock %}
 
 {% block content %}
+<h1>Product</h1>
+    <div class="row">
+        {% for pro in products %}
+            <div class="col-12 col-md-6 col-lg-4 mb-3">
+                <div class="card text-secondary">
+                    <div class="card-body">
+                        <h5 class="card-title">Name: {{ pro.product_name }}</h5>
+                        <p>Price: {{ pro.price }}$</p>
+                        <p>Category: {{ pro.category }}</p>
+                        <a href="#" class="btn btn-outline-info btn-sm mt-auto d-inline-block w-30">Подробнее</a>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+{% endfor %}
 
-<h1>Loga</h1>
+
 
 {% endblock %}
