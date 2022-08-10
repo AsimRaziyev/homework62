@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Add product{% endblock %}
+
+{% block content %}
+<br>
+<div class="card text-secondary mb-3" style="max-width: 18rem;">
+  <div class="card-header"><h2>Add product</h2></div>
+  <div class="card-body">
+    <form action="" method="post">
+        {% include "partial/form.html" with button_text="Add" %}
+    </form><br/>
+  </div>
+</div>
+{% endblock %}

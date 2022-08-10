@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block nav %}
+
+<li class="nav-item">
+    <a class="nav-link" href="{% url 'webapp:update_product' product.pk %}">Edit</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="{% url 'webapp:delete_product' product.pk %}">Delete</a>
+</li>
+
+{% endblock %}
+
+{% block content %}
+<br>
+<div class="card text-secondary mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+        <div class="col-md-4">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><label>Product name:</label>
+                    <h3>{{ product.product_name }}</h3></li>
+                <li class="list-group-item"><label>Category:</label>
+                    <h3>{{ product.category }}</h3></li>
+                <li class="list-group-item"><label>Price:</label>
+                    <h3>{{ product.price }}</h3></li>
+                <li class="list-group-item"><label>Remainder:</label>
+                    <h3>{{ product.remainder}}</h3></li>
+            </ul>
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <li class="list-group-item"><label>Product description:</label>
+                    <h3>{{ product.product_description }}</h3></li>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
