@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 
+
 {% block nav %}
 <li class="nav-item">
     <a class="nav-link" href="{% url 'webapp:create_product' %}">Add product</a>
@@ -8,6 +9,7 @@
 {% endblock %}
 
 {% block content %}
+
 <h1>Product</h1>
 <div class="row">
     {% for pro in products %}
@@ -27,6 +29,11 @@
         {% endif %}
     {% empty %}
     {% endfor %}
+</div>
+<div class="sort mt-5">
+        {% if is_paginated %}
+            {% include "partial/pagination.html" %}
+        {% endif %}
 </div>
 
 {% endblock %}

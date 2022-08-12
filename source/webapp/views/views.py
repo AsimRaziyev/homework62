@@ -9,6 +9,8 @@ class IndexView(ListView):
     template_name = "list_view.html"
     context_object_name = "products"
     ordering = "product_name"
+    paginate_by = 4
+    paginate_orphans = 1
 
 
 class DetailedView(DetailView):
