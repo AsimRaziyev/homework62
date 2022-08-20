@@ -6,30 +6,33 @@ from webapp.forms import ProductForm
 
 class IndexView(ListView):
     model = Product
-    template_name = "list_view.html"
+    template_name = "product/list_view.html"
     context_object_name = "products"
     ordering = "product_name"
     paginate_by = 4
     paginate_orphans = 1
 
+    # def get_queryset(self):
+    #     return super().get_queryset().filter(remainder__gt=0)
+
 
 class DetailedView(DetailView):
-    template_name = "detailed_view.html"
     model = Product
+    template_name = "product/detailed_view.html"
 
 
 class CreateProduct(CreateView):
     form_class = ProductForm
-    template_name = "create_product.html"
+    template_name = "product/create_product.html"
 
 
 class UpdateProduct(UpdateView):
-    form_class = ProductForm
-    template_name = "update_product.html"
     model = Product
+    form_class = ProductForm
+    template_name = "product/update_product.html"
 
 
 class DeleteProduct(DeleteView):
     model = Product
-    template_name = "delete_product.html"
+    template_name = "product/delete_product.html"
     success_url = reverse_lazy('webapp:index')

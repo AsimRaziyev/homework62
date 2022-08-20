@@ -1,0 +1,6 @@
+<form action="{% url 'webapp:add_item_cart'  product.pk %}" method="post">
+    {% csrf_token %}
+    <p>Add to item cart: </p>
+    <input type="number" name="quantity" value="1">
+    <button class="btn btn-outline-info btn-sm mt-auto d-inline-block">add</button>
+</form>

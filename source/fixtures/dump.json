@@ -6,7 +6,7 @@
       "product_name": "iphone 12",
       "product_description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor!",
       "category": "IPhone",
-      "remainder": 3,
+      "remainder": 2,
       "price": "1500.00"
    }
 },
@@ -28,7 +28,7 @@
       "product_name": "iPod touch",
       "product_description": "Lorem ipsum ociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla consequat massa quis enim.",
       "category": "IPod",
-      "remainder": 2,
+      "remainder": 0,
       "price": "800.00"
    }
 },
@@ -39,7 +39,7 @@
       "product_name": "iPad Pro",
       "product_description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula dolor. Aenean  In enim justo justo.",
       "category": "IPad",
-      "remainder": 2,
+      "remainder": 1,
       "price": "1300.25"
    }
 },
@@ -52,6 +52,83 @@
       "category": "IPhone",
       "remainder": 0,
       "price": "1000.00"
+   }
+},
+{
+   "model": "webapp.product",
+   "pk": 12,
+   "fields": {
+      "product_name": "iphone 11 pro",
+      "product_description": "aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.",
+      "category": "IPhone",
+      "remainder": 1,
+      "price": "1250.00"
+   }
+},
+{
+   "model": "webapp.order",
+   "pk": 1,
+   "fields": {
+      "name": "Joe",
+      "phone": "87776666666",
+      "address": "ffffffdddd",
+      "created_at": "2022-08-20T18:44:57.825Z"
+   }
+},
+{
+   "model": "webapp.order",
+   "pk": 2,
+   "fields": {
+      "name": "Maks",
+      "phone": "87778888888",
+      "address": "ddddffffff",
+      "created_at": "2022-08-20T18:51:01.146Z"
+   }
+},
+{
+   "model": "webapp.order",
+   "pk": 3,
+   "fields": {
+      "name": "Mac",
+      "phone": "87774444444",
+      "address": "sssssfffffff",
+      "created_at": "2022-08-20T19:14:05.517Z"
+   }
+},
+{
+   "model": "webapp.orderproduct",
+   "pk": 1,
+   "fields": {
+      "product": 3,
+      "order": 1,
+      "quantity": 2
+   }
+},
+{
+   "model": "webapp.orderproduct",
+   "pk": 2,
+   "fields": {
+      "product": 4,
+      "order": 1,
+      "quantity": 1
+   }
+},
+{
+   "model": "webapp.orderproduct",
+   "pk": 3,
+   "fields": {
+      "product": 1,
+      "order": 2,
+      "quantity": 1
+   }
+},
+{
+   "model": "webapp.orderproduct",
+   "pk": 4,
+   "fields": {
+      "product": 12,
+      "order": 3,
+      "quantity": 1
    }
 }
 ]

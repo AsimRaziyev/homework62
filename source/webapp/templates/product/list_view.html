@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block nav %}
+
+{% endblock %}
+
+{% block content %}
+<h1>Product</h1>
+<div class="row">
+    {% for product in products %}
+        {% if product.remainder < 1 %}
+
+        {% else %}
+        <div class="col-12 col-md-6 col-lg-4 mb-3">
+            <div class="card text-secondary">
+                <div class="card-body">
+                    <h5 class="card-title">Product name: {{ product.product_name }}</h5>
+                    <p>Price: {{ product.price }}$</p>
+                    <p>Category: {{ product.category }}</p>
+                    <p>Remainder: {{ product.remainder }}</p>
+                    <a href="{{ product.get_absolute_url }}" class="btn btn-outline-info btn-sm mt-auto d-inline-block w-30">more</a>
+                    <a href="{% url 'webapp:item_cart' %}" class="btn btn-outline-info btn-sm mt-auto d-inline-block w-30">add to basket</a>
+<!--                    <a href="#" class="btn btn-outline-info btn-sm mt-auto d-inline-block w-30">edit</a>-->
+<!--                    <a href="#" class="btn btn-outline-info btn-sm mt-auto d-inline-block w-30">delete</a>-->
+                    <br>
+                    </br>
+                    {% include "partial/item_cart_add_form.html" %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    {% empty %}
+    {% endfor %}
+</div>
+<div class="sort mt-5">
+        {% if is_paginated %}
+            {% include "partial/pagination.html" %}
+        {% endif %}
+</div>
+
+{% endblock %}

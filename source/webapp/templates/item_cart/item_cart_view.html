@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+<br>
+<div class="card text-secondary mb-3">
+    <div class="card-body">
+        <h2>Item Cart</h2>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Product name:</th>
+                <th scope="col">Remainder:</th>
+                <th scope="col">Price:</th>
+                <th scope="col">Sum</th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for ic in item_cart%}
+            <tr>
+                <td>{{ ic.product.product_name }}</td>
+                <td>{{ ic.quantity }}</td>
+                <td>{{ ic.product.price }}$</td>
+                <td>{{ ic.get_product_total }}$</td>
+                <td><a href="{% url 'webapp:delete_one_item_cart' ic.pk %}">One Delete</a></td>
+                <td><a href="{% url 'webapp:delete_item_cart' ic.pk %}">Delete</a></td>
+            </tr>
+            {% endfor%}
+            </tbody>
+        </table>
+
+        <h5>Total: {{ total }}$</h5>
+    </div>
+</div>
+<div class="card text-secondary mb-3" style="max-width: 18rem;">
+    <div class="card-header"><h2>Add order</h2></div>
+    <div class="card-body">
+        <form action="{% url 'webapp:order_create' %}" method="post">
+            {% include "partial/form.html" with button_text="order"%}
+        </form>
+        <br/>
+    </div>
+</div>
+
+{% endblock %}
