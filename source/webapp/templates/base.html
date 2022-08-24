@@ -22,15 +22,38 @@
 
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
+                {% if request.user.is_authenticated %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'webapp:create_product' %}">Add product</a>
                 </li>
+                {% endif %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'webapp:item_cart' %}">Add to Basket</a>
                 </li>
+                {% if request.user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'accounts:profile' user.pk %}">Orders</a>
+                </li>
+                {% endif %}
                 {% block nav %}
 
                 {% endblock %}
+
+                {% if request.user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'accounts:logout' %}">Выйти</a>
+                </li>
+                <li class="nav-item">
+                    <p class="user_zareg nav-link" >Здравствуйте! <a href="">{{ user }}</a></p>
+                </li>
+                {% else %}
+                 <li class="nav-item">
+                    <a class="nav-link" href="{% url 'accounts:login' %}?next={{ request.get_full_path }}">Вход</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'accounts:create' %}?next={{ request.get_full_path }}">Зарегистрироваться</a>
+                </li>
+                {% endif %}
                 {% block search_form %}
 
                 {% endblock %}

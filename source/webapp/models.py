@@ -1,6 +1,8 @@
+from django.contrib.auth import get_user_model
 from django.db import models
 
 # Create your models here.
+from django.db.models import Sum, F
 from django.urls import reverse
 
 
@@ -22,33 +24,21 @@ class Product(models.Model):
         return reverse("webapp:detailed_view", kwargs={"pk": self.pk})
 
 
-class ItemInCart(models.Model):
-    product = models.ForeignKey("webapp.Product", on_delete=models.CASCADE,
-                                related_name="basket", verbose_name="Item in cart")
-    quantity = models.PositiveIntegerField(default=1, verbose_name="Quantity")
-
-    def __str__(self):
-        return f'{self.product.product_name} - {self.quantity}'
-
-    def get_product_total(self):
-        return self.quantity * self.product.price
-
-    @classmethod
-    def get_total(cls):
-        total = 0
-        for i_cart in cls.objects.all():
-            total += i_cart.get_product_total()
-        return total
-
-
 class Order(models.Model):
     name = models.CharField(max_length=50, verbose_name="Name")
     phone = models.CharField(max_length=30, verbose_name="Phone")
     address = models.CharField(max_length=100, verbose_name="Address")
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Date creation")
+    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, null=True, blank=True, related_name="orders",
+                                verbose_name='User')
 
     def __str__(self):
         return f'{self.name} - {self.phone}'
+
+    def get_total(self):
+        total = self.order_products.aggregate(total=Sum(F("quantity") * F("product__price")))
+        return total["total"]
+
 
 
 class OrderProduct(models.Model):
@@ -60,3 +50,6 @@ class OrderProduct(models.Model):
 
     def __str__(self):
         return f'{self.product.product_name} - {self.order.name}'
+
+    def get_sum(self):
+        return self.quantity * self.product.price
