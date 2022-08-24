@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Профиль{% endblock %}
+
+{% block nav %}
+
+{% endblock %}
+
+{% block content %}
+<br>
+<div class="card text-secondary mb-3">
+    <div class="card-body">
+        <h2>My orders</h2>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Product name:</th>
+                <th scope="col">Remainder:</th>
+                <th scope="col">Price:</th>
+                <th scope="col">Sum</th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for order in user.orders.all %}
+                {% for order_product in order.order_products.all %}
+            <tr>
+                <td>{{ order_product.product.product_name }}</td>
+                <td>{{ order_product.quantity }}</td>
+                <td>{{ order_product.product.price }}$</td>
+                <td>{{ order_product.get_sum }}$</td>
+            </tr>
+                {% endfor%}
+            {% endfor %}
+            </tbody>
+        </table>
+        <h5>Total: {% for order in user.orders.all %}{{ order.get_total }}${% endfor%}</h5>
+    </div>
+</div>
+
+{% endblock %}

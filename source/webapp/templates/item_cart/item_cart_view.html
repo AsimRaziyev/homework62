@@ -17,14 +17,14 @@
             </tr>
             </thead>
             <tbody>
-            {% for ic in item_cart%}
+            {% for ic in cart %}
             <tr>
                 <td>{{ ic.product.product_name }}</td>
                 <td>{{ ic.quantity }}</td>
                 <td>{{ ic.product.price }}$</td>
-                <td>{{ ic.get_product_total }}$</td>
-                <td><a href="{% url 'webapp:delete_one_item_cart' ic.pk %}">One Delete</a></td>
-                <td><a href="{% url 'webapp:delete_item_cart' ic.pk %}">Delete</a></td>
+                <td>{{ ic.product_total }}$</td>
+                <td><a href="{% url 'webapp:delete_one_item_cart' ic.product.pk %}">One Delete</a></td>
+                <td><a href="{% url 'webapp:delete_item_cart' ic.product.pk %}">Delete</a></td>
             </tr>
             {% endfor%}
             </tbody>

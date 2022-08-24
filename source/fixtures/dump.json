@@ -6,7 +6,7 @@
       "product_name": "iphone 12",
       "product_description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor!",
       "category": "IPhone",
-      "remainder": 2,
+      "remainder": 10,
       "price": "1500.00"
    }
 },
@@ -17,7 +17,7 @@
       "product_name": "iphone 13",
       "product_description": "Lorem Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes.",
       "category": "IPhone",
-      "remainder": 1,
+      "remainder": 7,
       "price": "1700.00"
    }
 },
@@ -39,7 +39,7 @@
       "product_name": "iPad Pro",
       "product_description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula dolor. Aenean  In enim justo justo.",
       "category": "IPad",
-      "remainder": 1,
+      "remainder": 0,
       "price": "1300.25"
    }
 },
@@ -61,28 +61,30 @@
       "product_name": "iphone 11 pro",
       "product_description": "aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.",
       "category": "IPhone",
-      "remainder": 1,
+      "remainder": 0,
       "price": "1250.00"
    }
 },
 {
-   "model": "webapp.order",
-   "pk": 1,
+   "model": "webapp.product",
+   "pk": 13,
    "fields": {
-      "name": "Joe",
-      "phone": "87776666666",
-      "address": "ffffffdddd",
-      "created_at": "2022-08-20T18:44:57.825Z"
+      "product_name": "iPod touch2",
+      "product_description": "dededdede ede",
+      "category": "IPod",
+      "remainder": 8,
+      "price": "1400.00"
    }
 },
 {
-   "model": "webapp.order",
-   "pk": 2,
+   "model": "webapp.product",
+   "pk": 14,
    "fields": {
-      "name": "Maks",
-      "phone": "87778888888",
-      "address": "ddddffffff",
-      "created_at": "2022-08-20T18:51:01.146Z"
+      "product_name": "iphone 13 Pro Max",
+      "product_description": "sasacff fdfd",
+      "category": "IPhone",
+      "remainder": 15,
+      "price": "3000.00"
    }
 },
 {
@@ -92,7 +94,41 @@
       "name": "Mac",
       "phone": "87774444444",
       "address": "sssssfffffff",
-      "created_at": "2022-08-20T19:14:05.517Z"
+      "created_at": "2022-08-20T19:14:05.517Z",
+      "user": null
+   }
+},
+{
+   "model": "webapp.order",
+   "pk": 4,
+   "fields": {
+      "name": "lead",
+      "phone": "87770000000",
+      "address": "ddddffffffhhhh",
+      "created_at": "2022-08-22T22:01:51.157Z",
+      "user": null
+   }
+},
+{
+   "model": "webapp.order",
+   "pk": 5,
+   "fields": {
+      "name": "lead",
+      "phone": "87770000000",
+      "address": "ddddffffffhhhh",
+      "created_at": "2022-08-22T22:03:15.447Z",
+      "user": null
+   }
+},
+{
+   "model": "webapp.order",
+   "pk": 26,
+   "fields": {
+      "name": "admin",
+      "phone": "87778888888",
+      "address": "ffffffdddd5",
+      "created_at": "2022-08-24T22:32:27.636Z",
+      "user": 1
    }
 },
 {
@@ -128,6 +164,168 @@
    "fields": {
       "product": 12,
       "order": 3,
+      "quantity": 1
+   }
+},
+{
+   "model": "webapp.orderproduct",
+   "pk": 5,
+   "fields": {
+      "product": 4,
+      "order": 6,
+      "quantity": 1
+   }
+},
+{
+   "model": "webapp.orderproduct",
+   "pk": 6,
+   "fields": {
+      "product": 12,
+      "order": 7,
+      "quantity": 2
+   }
+},
+{
+   "model": "webapp.orderproduct",
+   "pk": 7,
+   "fields": {
+      "product": 12,
+      "order": 8,
+      "quantity": 1
+   }
+},
+{
+   "model": "webapp.orderproduct",
+   "pk": 8,
+   "fields": {
+      "product": 12,
+      "order": 13,
+      "quantity": 1
+   }
+},
+{
+   "model": "webapp.orderproduct",
+   "pk": 9,
+   "fields": {
+      "product": 13,
+      "order": 16,
+      "quantity": 1
+   }
+},
+{
+   "model": "webapp.orderproduct",
+   "pk": 10,
+   "fields": {
+      "product": 13,
+      "order": 17,
+      "quantity": 1
+   }
+},
+{
+   "model": "webapp.orderproduct",
+   "pk": 11,
+   "fields": {
+      "product": 13,
+      "order": 18,
+      "quantity": 1
+   }
+},
+{
+   "model": "webapp.orderproduct",
+   "pk": 12,
+   "fields": {
+      "product": 13,
+      "order": 19,
+      "quantity": 1
+   }
+},
+{
+   "model": "webapp.orderproduct",
+   "pk": 13,
+   "fields": {
+      "product": 12,
+      "order": 20,
+      "quantity": 1
+   }
+},
+{
+   "model": "webapp.orderproduct",
+   "pk": 14,
+   "fields": {
+      "product": 13,
+      "order": 21,
+      "quantity": 1
+   }
+},
+{
+   "model": "webapp.orderproduct",
+   "pk": 15,
+   "fields": {
+      "product": 13,
+      "order": 22,
+      "quantity": 1
+   }
+},
+{
+   "model": "webapp.orderproduct",
+   "pk": 16,
+   "fields": {
+      "product": 13,
+      "order": 23,
+      "quantity": 1
+   }
+},
+{
+   "model": "webapp.orderproduct",
+   "pk": 17,
+   "fields": {
+      "product": 13,
+      "order": 24,
+      "quantity": 1
+   }
+},
+{
+   "model": "webapp.orderproduct",
+   "pk": 18,
+   "fields": {
+      "product": 13,
+      "order": 25,
+      "quantity": 1
+   }
+},
+{
+   "model": "webapp.orderproduct",
+   "pk": 19,
+   "fields": {
+      "product": 12,
+      "order": 25,
+      "quantity": 5
+   }
+},
+{
+   "model": "webapp.orderproduct",
+   "pk": 20,
+   "fields": {
+      "product": 13,
+      "order": 26,
+      "quantity": 2
+   }
+},
+{
+   "model": "webapp.orderproduct",
+   "pk": 21,
+   "fields": {
+      "product": 2,
+      "order": 26,
+      "quantity": 3
+   }
+},
+{
+   "model": "webapp.orderproduct",
+   "pk": 22,
+   "fields": {
+      "product": 13,
+      "order": 27,
       "quantity": 1
    }
 }
